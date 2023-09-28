@@ -5,9 +5,8 @@ import com.iagompinheiro.backend.BarberShop.dto.UserDto;
 import com.iagompinheiro.backend.BarberShop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -19,23 +18,30 @@ public class UserService {
         this.userRepository.save(user);
     }
 
-    public User createUser(UserDto userDto) {
+    public User create(UserDto userDto) {
         User newUser = new User(userDto);
         this.saveUser(newUser);
         return newUser;
     }
 
-    public List<User> listAll() {
-       return userRepository.findAll();
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
-    public User findById(@PathVariable Long id) {
+    public User findById(Long id) {
         return userRepository.findById(id).get();
     }
 
-    public void deleteById(@PathVariable Long id) {
-         userRepository.deleteById(id);
+    public User updateUsers(Long id, UserDto userDto) {
+        User updateUser = findById(id);
+        updateUser.setFirstName(userDto.firstName());
+        updateUser.setLastName(userDto.lastName());
+        updateUser.setEmail(userDto.email());
+        return userRepository.save(updateUser);
     }
 
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
 
 }
