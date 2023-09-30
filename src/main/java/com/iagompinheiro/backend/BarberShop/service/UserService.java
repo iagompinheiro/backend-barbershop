@@ -5,8 +5,6 @@ import com.iagompinheiro.backend.BarberShop.dto.UserDto;
 import com.iagompinheiro.backend.BarberShop.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -14,13 +12,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void saveUser(User user) {
-        this.userRepository.save(user);
-    }
-
     public User create(UserDto userDto) {
         User newUser = new User(userDto);
-        this.saveUser(newUser);
+        this.userRepository.save(newUser);
         return newUser;
     }
 

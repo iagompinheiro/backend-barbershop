@@ -1,5 +1,6 @@
 package com.iagompinheiro.backend.BarberShop.domain.domainUser;
 
+import com.iagompinheiro.backend.BarberShop.domain.domainActivity.Activity;
 import com.iagompinheiro.backend.BarberShop.dto.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
