@@ -50,6 +50,22 @@ public class ActivityService {
         Activity updateActivity = activityById(id);
         updateActivity.setActivityType(activityDto.activityType());
         updateActivity.setDateTime(activityDto.dateTime());
+        switch (updateActivity.getActivityType()) {
+            case LOWFADE:
+                updateActivity.setValueType(30.0);
+                break;
+            case MIDFADE:
+                updateActivity.setValueType(35.0);
+                break;
+            case AMERICAN:
+                updateActivity.setValueType(40.0);
+                break;
+            case HIGHFADE:
+                updateActivity.setValueType(25.0);
+            default:
+                break;
+        }
+
         activityRepository.save(updateActivity);
         return updateActivity;
     }
