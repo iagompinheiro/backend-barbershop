@@ -1,11 +1,9 @@
 package com.iagompinheiro.backend.BarberShop.domain.domainActivity;
+
 import com.iagompinheiro.backend.BarberShop.domain.domainUser.User;
 import com.iagompinheiro.backend.BarberShop.dto.ActivityDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@EqualsAndHashCode(of = "id")
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,24 +30,7 @@ public class Activity {
     public Activity(ActivityDto activityDto) {
         this.dateTime = activityDto.dateTime();
         this.activityType = activityDto.activityType();
-
-        switch (this.activityType) {
-            case LOWFADE -> {
-                this.valueType = 30.0;
-                break;
-            }
-            case MIDFADE -> {
-                this.valueType = 35.0;
-                break;
-            }
-            case AMERICAN -> {
-                this.valueType = 40.0;
-                break;
-            }
-            case HIGHFADE -> {
-                this.valueType = 25.0;
-                break;
-            }
+        this.user = activityDto.user();
         }
     }
-}
+
