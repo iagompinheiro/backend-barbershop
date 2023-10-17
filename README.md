@@ -1,4 +1,4 @@
-#API REST
+# API REST
 ## backend-barbershop
 Nesse projeto, desenvolvi uma aplicação de API REST estruturada em camadas, com a implementação de Data Transfer Objects (DTOs) para a comunicação eficiente com um banco de dados relacional. Este projeto foi criado para simular um cenário do mundo real, no qual clientes e servidores interagem através de requisições HTTP. Entre as funcionalidades destacam-se a possibilidade de cadastro de usuários, agendamento de horários e seleção de serviços específicos oferecidos pela barbearia. Esta iniciativa demonstra a capacidade de desenvolver soluções práticas para demandas reais, reforçando as competências fundamentais em desenvolvimento de software, tais como o desenvolvimento de endpoints de API, manipulação de dados e interação com bancos de dados.
 
